@@ -8,7 +8,7 @@ import { MapOption } from "../model/map/map.option";
 
 @Injectable()
 export class MapService extends BaseMap {
-  googleAPIKey: string;
+  googleAPIKey: string = "AIzaSyAKI3TuBMvR3SZUDhzpEwoR5MaK6mp5u5E";
 
   constructor() {
     super();
