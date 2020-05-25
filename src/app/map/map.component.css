@@ -1,6 +1,6 @@
 #map {
   height: 400px;
-  width: 100vw;
+  width: 100%;
 }
 
 @-moz-keyframes pulsate {

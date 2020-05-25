@@ -1,16 +1,19 @@
 <div class="container">
-	<h3 class="mt-5 mb-5">Angular - Using Visitor design pattern with Typescript</h3>
+	<h3 class="mt-2 mb-2">Angular - Using Visitor design pattern with Typescript</h3>
 
 	<map [route]="route"></map>
-	<ul class="activity-log" *ngIf="messeges.length">
-		<strong>Activity</strong> <button (click)="clearLog()" class="btn ml-4 btn-primary btn-sm">Clear Log</button>
-		<li *ngFor="let message of messeges">
-			{{ message }}
-		</li>
+	<div class="alert alert-info mt-4" *ngIf="!messeges.length">
+		Use your mouse to hover/click into the marker to see the activity log.
+	</div>
+	<ul class="activity-log">
+		<ng-container *ngIf="messeges.length">
+			<strong>Activity</strong>
+			<button (click)="clearLog()" class="btn ml-4 btn-primary btn-sm">Clear Log</button>
+			<li *ngFor="let message of messeges">
+				{{ message }}
+			</li>
+		</ng-container>
 	</ul>
-  <div class="alert alert-info mt-4" *ngIf="!messeges.length">
-    Use your mouse to hover/click into the marker to see the activity log.
-  </div>
 	<hr />
 	For clarity and consistency when building UI, please read this <a target="_blank"
 		href="https://github.com/trungk18/front-end-editorial-style-guide">front-end-editorial-style-guide</a>

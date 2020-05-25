@@ -1,5 +1,5 @@
 .activity-log{
   margin-top: 20px;
-  max-height: 400px;
+  height: 100px;
   overflow: auto;
 }

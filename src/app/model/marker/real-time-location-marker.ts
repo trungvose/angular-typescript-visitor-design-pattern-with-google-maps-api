@@ -22,6 +22,7 @@ export class RealTimeLocationMarker extends CustomMarker<
     this.title = `Real time location`;
     this.popupContent = `
         <div>Real time location</div>
+        <div>${new Date(realTimeLocation.capturedTimeStamp).toString()}</div>
         <div>(${latitude}, ${longitude})</div>
     `;
     this.icon = {

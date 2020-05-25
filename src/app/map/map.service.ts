@@ -50,7 +50,7 @@ export class MapService extends BaseMap {
       this.addMarkerToMap(markerData);
       bounds.push(markerData.position);
     });
-    this.generateBounds(bounds);
+    this.generateBounds(bounds, { left:120, right: 120 });
   }
 
   addMarkerToMap(markerData: CustomMarker<any>) {
