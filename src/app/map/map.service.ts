@@ -69,7 +69,7 @@ export class MapService extends BaseMap {
         markerData.accept(new MarkerMouseOutVisitor(this._api));
     });
 
-    google.maps.event.addListener(markerData, 'click', () => {
+    google.maps.event.addListener(marker, 'click', () => {
         markerData.accept(new MarkerMouseClickVisitor(this._api));
     });
 

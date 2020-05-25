@@ -5,6 +5,7 @@ import { RouteModel } from "./model/api-model/route";
 @Component({
   selector: "my-app",
   templateUrl: "./app.component.html",
+  styleUrls: ["app.component.css"]
 })
 export class AppComponent implements OnInit {
   messeges: string[] = []
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.loadRoute();
+    this.onLogMessage()
   }
 
   loadRoute() {
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit {
 
   onLogMessage(){
     this._api.messageUpdate$.subscribe(message => {
-      this.messeges.push(message);
+      this.messeges = [message, ...this.messeges];
     })
   }
 }
