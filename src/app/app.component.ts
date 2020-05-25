@@ -8,24 +8,28 @@ import { RouteModel } from "./model/api-model/route";
   styleUrls: ["app.component.css"]
 })
 export class AppComponent implements OnInit {
-  messeges: string[] = []
+  messeges: string[] = [];
   route: RouteModel;
   constructor(private _api: MapApiService) {}
 
   ngOnInit() {
     this.loadRoute();
-    this.onLogMessage()
+    this.onLogMessage();
   }
 
   loadRoute() {
-    this._api.getRoute().subscribe((route) => {
+    this._api.getRoute().subscribe(route => {
       this.route = route;
     });
   }
 
-  onLogMessage(){
+  onLogMessage() {
     this._api.messageUpdate$.subscribe(message => {
       this.messeges = [message, ...this.messeges];
-    })
+    });
+  }
+
+  clearLog() {
+    this.messeges = [];
   }
 }

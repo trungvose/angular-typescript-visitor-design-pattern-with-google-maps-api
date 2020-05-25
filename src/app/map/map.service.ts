@@ -10,8 +10,8 @@ import { RealTimeLocationMarker } from "../model/marker/real-time-location-marke
 import { StartLocationMarker } from "../model/marker/start-location-marker";
 import { ZylCallback } from "../model/util.ts/callback";
 import { PointMarker } from "../model/marker/point-marker";
-import { MarkerMouseOverVisitor } from '../model/visitor/marker-mouse-over-visitor';
-import { MarkerMouseOutVisitor } from '../model/visitor/marker-mouse-out-visitor';
+import { MarkerMouseOverVisitor } from "../model/visitor/marker-mouse-over-visitor";
+import { MarkerMouseOutVisitor } from "../model/visitor/marker-mouse-out-visitor";
 import { MapApiService } from "../app.service";
 import { MarkerMouseClickVisitor } from "../model/visitor/marker-mouse-click-visitor";
 
@@ -44,14 +44,16 @@ export class MapService extends BaseMap {
   }
 
   showRoute(route: RouteModel) {
+    let bounds = [];
     let customMarkers = this.generateMarkerData(route);
-    customMarkers.forEach(markerData =>{
-      this.addMarkerToMap(markerData)
-    })
+    customMarkers.forEach(markerData => {
+      this.addMarkerToMap(markerData);
+      bounds.push(markerData.position);
+    });
+    this.generateBounds(bounds);
   }
 
-  addMarkerToMap(markerData: CustomMarker<any>){
-    let bounds = []
+  addMarkerToMap(markerData: CustomMarker<any>) {
     let marker = new google.maps.Marker({
       map: this.map,
       position: markerData.position,
@@ -59,26 +61,24 @@ export class MapService extends BaseMap {
       title: markerData.title
     });
 
-    google.maps.event.addListener(marker, 'mouseover', () => {            
-      this.openInfoWindow(marker, markerData.popupContent)
+    google.maps.event.addListener(marker, "mouseover", () => {
+      this.openInfoWindow(marker, markerData.popupContent);
       markerData.accept(new MarkerMouseOverVisitor(this._api));
     });
 
-    google.maps.event.addListener(marker, 'mouseout', () => {
-        this.infoWindow.close();
-        markerData.accept(new MarkerMouseOutVisitor(this._api));
+    google.maps.event.addListener(marker, "mouseout", () => {
+      this.infoWindow.close();
+      markerData.accept(new MarkerMouseOutVisitor(this._api));
     });
 
-    google.maps.event.addListener(marker, 'click', () => {
-        markerData.accept(new MarkerMouseClickVisitor(this._api));
+    google.maps.event.addListener(marker, "click", () => {
+      markerData.accept(new MarkerMouseClickVisitor(this._api));
     });
 
-    bounds.push(markerData.position);
     this.markers.push(marker);
-    this.generateBounds(bounds);
   }
 
-  generateMarkerData(route: RouteModel): CustomMarker<any>[]{
+  generateMarkerData(route: RouteModel): CustomMarker<any>[] {
     let customMarkers: CustomMarker<any>[] = [];
 
     if (route.startLocation) {
@@ -89,7 +89,7 @@ export class MapService extends BaseMap {
       customMarkers.push(new RealTimeLocationMarker(route.realTimeLocation));
     }
 
-    route.points.forEach((point) => {
+    route.points.forEach(point => {
       customMarkers.push(new PointMarker(point));
     });
     return customMarkers;
