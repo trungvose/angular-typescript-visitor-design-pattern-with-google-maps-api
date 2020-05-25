@@ -22,13 +22,13 @@ export class MapApiService {
           sequence: 0,
           location: {
             geoCoordinate: {
-              latitude: 1.295143,
-              longitude: 103.8855761
+              latitude: 1.3052818,
+              longitude: 103.8758533
             },
             city: "Singapore",
             country: "Singapore",
-            street: "Singapore Swimming Club, 45 Tg Rhu Rd",
-            postalCode: 436899
+            street: "McDonald's Kallang (Stadium), 200 Stadium Blvd",
+            postalCode: 397801
           },
           tasks: []
         },
@@ -52,19 +52,19 @@ export class MapApiService {
       startLocation: {
         location: {
           geoCoordinate: {
-            latitude: 1.2941093,
-            longitude: 103.8682161
+            latitude: 1.3007546,
+            longitude: 103.8612966
           },
           city: "Singapore",
           country: "Singapore",
-          street: "Leisure Park Kallang, 5 Stadium Walk",
-          postalCode: 397693
+          street: "Golden Mile Complex, 5001 Beach Rd",
+          postalCode: 199588
         }
       },
       realTimeLocation: {
         geoCoordinate: {
-          latitude: 1.295434,
-          longitude: 103.891826
+          latitude: 1.300151,
+          longitude: 103.891317
         },
         capturedTimeStamp: "2020-05-25T02:49:18.152Z"
       },
