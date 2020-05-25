@@ -1,8 +1,7 @@
-import { GeoCoordinateApi } from "./location";
+import { LocationApi } from "./location";
 
 export class StartLocationModel {
-  public geoCoordinates: GeoCoordinateApi;
-  public capturedTimeStamp: string;
-  
+  public location: LocationApi;
+
   //And many more properties
 }

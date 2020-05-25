@@ -6,6 +6,8 @@ export abstract class CustomMarker<T> {
   abstract type: CustomMarkerType;
   abstract position: google.maps.LatLng;
   abstract popupContent: string;
+  abstract icon: google.maps.Icon;
+  abstract title: string;
 
   constructor(data: T) {
     this.data = data;

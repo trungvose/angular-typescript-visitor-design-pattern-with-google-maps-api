@@ -3,8 +3,6 @@
   public static load(googleKey: string, libs?: string): Promise<any> {
     let map = {
       URL: `https://maps.googleapis.com/maps/api/js?libraries=geometry${libs ? libs : ""}&key=${googleKey}&callback=__onGoogleLoaded`,
-      MARKER_LABEL: '/Scripts/common/markerwithlabel_packed.js'
-      //CLUSTER: '/Scripts/common/markerclusterer.js'
     };    
     if (!this.promise) {      
       this.promise = new Promise(resolve => {        
@@ -12,13 +10,9 @@
           resolve("already loaded");
           return false;
         }
-        this.loadScript(map.URL, () => {
-            this.loadScript(map.MARKER_LABEL, () =>{ 
-              resolve('google maps api loaded');
-            });
-        });
+        this.loadScript(map.URL);
         window['__onGoogleLoaded'] = $event => {
-            //resolve('google maps api loaded');
+            resolve('google maps api loaded');
         };
       });
     }
