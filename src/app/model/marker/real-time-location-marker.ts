@@ -26,12 +26,21 @@ export class RealTimeLocationMarker extends CustomMarker<
     `;
     this.icon = {
       url: MapIcon.REAL_TIME_ICON,
-      anchor: new google.maps.Point( 8, 8 ), // anchor (move to center of marker),
-      scaledSize: new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
+      anchor: new google.maps.Point(8, 8), // anchor (move to center of marker),
+      scaledSize: new google.maps.Size(17, 17), // scaled size (required for Retina display icon)
     };
   }
 
   accept(visitor: CustomMarkerVisitor): void {
     visitor.visitRealTimeLocation(this);
+  }
+
+  /**
+   * Concrete Components may have special methods that don't exist in their
+   * base class or interface. The Visitor is still able to use these methods
+   * since it's aware of the component's concrete class.
+   */
+  concreteMethodOfRealTimeLocation() {
+    return "Real time";
   }
 }

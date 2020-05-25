@@ -17,7 +17,9 @@ export class MarkerMouseClickVisitor implements CustomMarkerVisitor {
   }
 
   visitRealTimeLocation(marker: RealTimeLocationMarker) {
-    this.logMessage(marker);
+    //You could call this method too 
+    //marker.concreteMethodOfRealTimeLocation();
+    this.logMessage(marker);    
   }
 
   logMessage(marker: CustomMarker<any>){
