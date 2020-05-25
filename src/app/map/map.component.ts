@@ -24,6 +24,8 @@ export class MapComponent implements OnChanges, AfterViewInit {
   }
 
   showRoute(route: RouteModel){
-    this._map.loadMap(this._map.showRoute.bind(this, route));
+    this._map.loadMap(() =>{ 
+      this._map.showRoute(route);
+    });
   }
 }
