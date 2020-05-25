@@ -15,7 +15,7 @@ import { MarkerMouseOutVisitor } from '../model/visitor/marker-mouse-out-visitor
 
 @Injectable()
 export class MapService extends BaseMap {
-  googleAPIKey: string = "AIzaSyAKI3TuBMvR3SZUDhzpEwoR5MaK6mp5u5E";
+  googleAPIKey: string = "AIzaSyBlDdeATvYygScwm6Ue6b8t4yADwhe39JU";
   markers: google.maps.Marker[] = [];
 
   constructor(private _zone: NgZone) {
@@ -51,6 +51,7 @@ export class MapService extends BaseMap {
   addMarkerToMap(markerData: CustomMarker<any>){
     let bounds = []
     let marker = new google.maps.Marker({
+      map: this.map,
       position: markerData.position,
       icon: markerData.icon,
       title: markerData.title
