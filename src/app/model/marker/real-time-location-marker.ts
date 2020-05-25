@@ -1,6 +1,7 @@
 import { CustomMarker, CustomMarkerType } from "./custom-marker";
 import { RealtimeLocationModel } from "../api-model/realtime-location";
 import { CustomMarkerVisitor } from "../visitor/custom-marker-visitor";
+import { MapIcon } from "./map-icon";
 
 export class RealTimeLocationMarker extends CustomMarker<
   RealtimeLocationModel
@@ -23,6 +24,11 @@ export class RealTimeLocationMarker extends CustomMarker<
         <div>Real time location</div>
         <div>(${latitude}, ${longitude})</div>
     `;
+    this.icon = {
+      url: MapIcon.REAL_TIME_ICON,
+      anchor: new google.maps.Point( 8, 8 ), // anchor (move to center of marker),
+      scaledSize: new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
+    };
   }
 
   accept(visitor: CustomMarkerVisitor): void {

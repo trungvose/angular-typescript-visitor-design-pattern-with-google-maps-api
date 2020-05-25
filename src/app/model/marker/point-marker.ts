@@ -25,11 +25,12 @@ export class PointMarker extends CustomMarker<PointModel> {
     this.type = CustomMarkerType.POINT;
     this.position = new google.maps.LatLng(latitude, longitude);
     this.icon = {
-      url: MapIcon.POINT_ICON      
+      url: MapIcon.POINT_ICON,
+      scaledSize: new google.maps.Size(18, 18)      
     }
     this.title = `Point ${point.sequence + 1}`;
     this.popupContent = `
-        <div>Point ${point.sequence + 1}</div>
+        <div><strong>Point ${point.sequence + 1}</strong></div>
         <div>${street}, ${postalCode}</div>
     `;
   }

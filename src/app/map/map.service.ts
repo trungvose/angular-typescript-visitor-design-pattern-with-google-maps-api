@@ -12,13 +12,15 @@ import { ZylCallback } from "../model/util.ts/callback";
 import { PointMarker } from "../model/marker/point-marker";
 import { MarkerMouseOverVisitor } from '../model/visitor/marker-mouse-over-visitor';
 import { MarkerMouseOutVisitor } from '../model/visitor/marker-mouse-out-visitor';
+import { MapApiService } from "../app.service";
+import { MarkerMouseClickVisitor } from "../model/visitor/marker-mouse-click-visitor";
 
 @Injectable()
 export class MapService extends BaseMap {
   googleAPIKey: string = "AIzaSyBlDdeATvYygScwm6Ue6b8t4yADwhe39JU";
   markers: google.maps.Marker[] = [];
 
-  constructor(private _zone: NgZone) {
+  constructor(private _zone: NgZone, private _api: MapApiService) {
     super();
   }
 
@@ -59,18 +61,17 @@ export class MapService extends BaseMap {
 
     google.maps.event.addListener(marker, 'mouseover', () => {            
       this.openInfoWindow(marker, markerData.popupContent)
-      markerData.accept(new MarkerMouseOverVisitor(this));
+      markerData.accept(new MarkerMouseOverVisitor(this._api));
     });
 
     google.maps.event.addListener(marker, 'mouseout', () => {
         this.infoWindow.close();
-        markerData.accept(new MarkerMouseOutVisitor(this));
+        markerData.accept(new MarkerMouseOutVisitor(this._api));
     });
 
     google.maps.event.addListener(markerData, 'click', () => {
-        
+        markerData.accept(new MarkerMouseClickVisitor(this._api));
     });
-
 
     bounds.push(markerData.position);
     this.markers.push(marker);

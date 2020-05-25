@@ -1,1 +1,6 @@
 <map [route]="route"></map>
+<ul *ngIf="messeges.length">
+  <li *ngFor="let message of messeges">
+    {{ message }}
+  </li>
+</ul>

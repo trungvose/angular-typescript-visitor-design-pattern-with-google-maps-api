@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, OnChanges } from "@angular/core";
+import { Component, AfterViewInit, Input, OnChanges, ViewEncapsulation } from "@angular/core";
 import { MapService } from "./map.service";
 import { RouteModel } from '../model/api-model/route';
 
@@ -7,6 +7,7 @@ import { RouteModel } from '../model/api-model/route';
   templateUrl: "map.component.html",
   styleUrls: ["map.component.css"],
   providers: [MapService],
+  encapsulation: ViewEncapsulation.None
 })
 export class MapComponent implements OnChanges, AfterViewInit {
   @Input() route: RouteModel;

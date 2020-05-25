@@ -2,22 +2,25 @@ import { CustomMarkerVisitor } from "./custom-marker-visitor";
 import { PointMarker } from "../marker/point-marker";
 import { StartLocationMarker } from "../marker/start-location-marker";
 import { RealTimeLocationMarker } from "../marker/real-time-location-marker";
-import { MapService } from "src/app/map/map.service";
+import { CustomMarker } from "../marker/custom-marker";
+import { MapApiService } from "../../app.service";
 
 export class MarkerMouseOverVisitor implements CustomMarkerVisitor {
-  constructor(private _map: MapService) {
+  constructor(private _api: MapApiService) {}
 
-  }
-  
   visitPointMarker(marker: PointMarker) {
-    throw new Error("Method not implemented.");
+    this.logMessage(marker);
   }
 
   visitStartLocation(marker: StartLocationMarker) {
-    throw new Error("Method not implemented.");
+    this.logMessage(marker);
   }
 
   visitRealTimeLocation(marker: RealTimeLocationMarker) {
-    throw new Error("Method not implemented.");
+    this.logMessage(marker);
+  }
+
+  logMessage(marker: CustomMarker<any>) {
+    this._api.sendMessage(`${marker.title} mouse over`);
   }
 }
