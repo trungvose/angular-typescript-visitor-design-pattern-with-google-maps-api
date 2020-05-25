@@ -6,7 +6,7 @@ If you have multiple concrete classes that inherit from the same base class, or 
 
 https://trungk18.com/experience/typescript-visitor-pattern-with-google-maps-api/
 
-## [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-typescript-visitor-pattern-with-google-maps-api)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-typescript-visitor-pattern-with-google-maps-api)
 
 ## My actual application
 
