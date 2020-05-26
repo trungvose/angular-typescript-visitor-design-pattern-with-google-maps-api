@@ -1,8 +1,9 @@
 ﻿export class MapLoaderService {
   private static promise: Promise<any>;
   public static load(googleKey: string, libs?: string): Promise<any> {
+    let key = googleKey ? `&key=${googleKey}`: ""
     let map = {
-      URL: `https://maps.googleapis.com/maps/api/js?libraries=geometry${libs ? libs : ""}&key=${googleKey}&callback=__onGoogleLoaded`,
+      URL: `https://maps.googleapis.com/maps/api/js?libraries=geometry${libs ? libs : ""}${key}&callback=__onGoogleLoaded`,
     };    
     if (!this.promise) {      
       this.promise = new Promise(resolve => {        

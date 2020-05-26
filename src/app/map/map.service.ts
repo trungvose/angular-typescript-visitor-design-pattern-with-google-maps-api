@@ -17,7 +17,7 @@ import { MarkerMouseClickVisitor } from "../model/visitor/marker-mouse-click-vis
 
 @Injectable()
 export class MapService extends BaseMap {
-  googleAPIKey: string = "AIzaSyBlDdeATvYygScwm6Ue6b8t4yADwhe39JU";
+  googleAPIKey: string = "";
   markers: google.maps.Marker[] = [];
 
   constructor(private _zone: NgZone, private _api: MapApiService) {
