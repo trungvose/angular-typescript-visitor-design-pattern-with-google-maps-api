@@ -10,7 +10,12 @@ https://trungk18.com/experience/typescript-visitor-pattern-with-google-maps-api/
 
 ## My actual application
 
-![Using Visitor design pattern with Typescript](https://github.com/trungk18/trungk18.github.io/raw/master/img/blog/angular-typescript-visitor-pattern-with-google-maps-api-01.gif)
+![Using Visitor design pattern with Typescript](https://gitlab.com/trungk181/blog/-/raw/master/img/blog/angular-typescript-visitor-pattern-with-google-maps-api-01.gif)
+
+## What we will build
+
+![Using Visitor design pattern with Typescript](https://gitlab.com/trungk181/blog/-/raw/master/img/blog/angular-typescript-visitor-pattern-with-google-maps-api-02.gif)
+
 
 ## Development server
 
