@@ -8,14 +8,21 @@ https://trungk18.com/experience/typescript-visitor-pattern-with-google-maps-api/
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-typescript-visitor-pattern-with-google-maps-api)
 
+## Slide
+
+I presented it at [SingaporeJS - talk.js - July 2020][july2020]. See the slide deck:
+
+https://slides.com/tuantrungvo/angular-using-visitor-design-pattern-with-typescript
+
+[july2020]: https://github.com/SingaporeJS/talk.js/issues/39
+
 ## My actual application
 
-![Using Visitor design pattern with Typescript](https://gitlab.com/trungk181/blog/-/raw/master/img/blog/angular-typescript-visitor-pattern-with-google-maps-api-01.gif)
+![Using Visitor design pattern with Typescript](https://trungk18.com/9a638fb5403cb19037d66ff43ae357d4/01.gif)
 
 ## What we will build
 
-![Using Visitor design pattern with Typescript](https://gitlab.com/trungk181/blog/-/raw/master/img/blog/angular-typescript-visitor-pattern-with-google-maps-api-02.gif)
-
+![Using Visitor design pattern with Typescript](https://trungk18.com/5e4fa4790f2e28408eb9e64a22197e60/02.gif)
 
 ## Development server
 
